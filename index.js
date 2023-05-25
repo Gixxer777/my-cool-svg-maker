@@ -28,7 +28,7 @@ function prompts() {
 
     ])
     .then((answers) => {
-        if (answers.character.length > 3) {
+        if (answers.characters.length > 3) {
             console.log('Please enter 3 characters or less.');
             prompts();
         } else {
