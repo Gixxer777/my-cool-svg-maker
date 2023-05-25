@@ -41,7 +41,6 @@ function writeToFile(fileName, answers) {
     let svgLogo = "";
     svgLogo =  '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="200">';
    
-
     let shapeChoice;
     if (answers.shape === 'Triangle') {
         shapeChoice = new Triangle();
@@ -53,6 +52,7 @@ function writeToFile(fileName, answers) {
         shapeChoice = new Circle();
         svgLogo += `<circle cx="150" cy="115" r="80" fill="${answers.shapeColor}"/>`;
     }
+
 
     svgLogo += `<text x="150" y="130" text-anchor="middle" font-size="60" fill="${answers.letterColor}">${answers.characters}</text>`;
     svgLogo += "</svg>";
