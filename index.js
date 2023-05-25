@@ -39,24 +39,21 @@ function prompts() {
 
 function writeToFile(fileName, answers) {
     let svgLogo = "";
-    svgLogo =  '<svg version="1.1" width="300" height="200" xmlns="http://w3.org/2000/svg">';
-    svgLogo += "<g>";
-    svgLogo += `${answers.shape}`;
-
+    svgLogo =  '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="200">';
+   
     let shapeChoice;
     if (answers.shape === 'Triangle') {
         shapeChoice = new Triangle();
-        svgLogo += `<polygon points="150, 18 244, 182 56, 182" fill="${answers.shapeColor}" />`;
+        svgLogo += `<polygon points="150, 18 244, 182 56, 182" fill="${answers.shapeColor}"/>`;
     } else if (answers.shape === 'Square') {
         shapeChoice = new Square();
-        svgLogo += `<rect x="73" y="40" width="160" height="160" fill="${answers.shapeColor}" />`;
+        svgLogo += `<rect x="73" y="40" width="160" height="160" fill="${answers.shapeColor}"/>`;
     } else {
         shapeChoice = new Circle();
-        svgLogo += `<circle cx="150" cy="115" r="80" fill="${answers.shapeColor}" />`;
+        svgLogo += `<circle cx="150" cy="115" r="80" fill="${answers.shapeColor}"/>`;
     }
 
-    svgLogo += `<text x="150" y="130" text-anchor="middle" font-size="60" fill="${answers.letterColor}">${answers.characters}</text>`;
-    svgLogo += "</g>";
+    svgLogo += `<text x="150" y="130" text-anchor="middle" font-size="40" fill="${answers.letterColor}">${answers.characters}</text>`;
     svgLogo += "</svg>";
 
     fs.writeFile(fileName, svgLogo, (err) => {
